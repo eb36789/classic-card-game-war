@@ -1,22 +1,17 @@
 console.log("working");
 
 //Reference: how to build a deck of cards in JS --> https://www.youtube.com/watch?v=h3ehO5QMNu4
-//Put title (header), reset (button), flip card (button) and placeholders for played cards and player stack of cards on page using CSS
+//Put title (header), reset (button), flip card (button) and placeholders for played cards and player stack of cards on page 
+//using CSS
 
-//build deck of cards
+//build deck of cards (class for cards, class for deck)
 //on page load, load deck of cards and split into two piles
-
-
 class Card {
     constructor(value, suit) {
         this.value = value;
         this.suit = suit;
     }
 }
-// let card = new Card(2, "spades");
-// console.log(card);
-
-
 
 const suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
 const value = ["Ace", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
@@ -61,6 +56,13 @@ deckOfCards.shuffle();
 let player1pile = [];
 let player2pile = [];
 
+//split deck into two piles
+let 
+while (deckOfCards.length > 0){
+    push.player1pile
+
+}
+
 //addeventListener(click) logic to flip cards button, onclick: display random card from each player pile
 
 //capture played values (cards or clicks) so that future clicks will only display available cards
@@ -69,6 +71,7 @@ let player2pile = [];
 
 //when either player card count reaches 52(?), use alert to declare a winner
 
-//enable reset button to clear board
-
-//bonus: keep running tally of wins per player
+//enable reset to clear board --> add to reset button
+function refresh() {
+    window.parent.location = window.parent.location.href;
+}
