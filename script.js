@@ -8,7 +8,7 @@ console.log("working");
 
 
 class Card {
-    constructor(points, suit) {
+    constructor(value, suit) {
         this.value = value;
         this.suit = suit;
     }
@@ -16,28 +16,52 @@ class Card {
 // let card = new Card(2, "spades");
 // console.log(card);
 
-class Deck {
-    constructor() {
-        this.deck = [];
-    }
-    buildDeck(suits, value) {
-        for(let suit of suits) {
-            for(let value of value) {
-                this.deck.push(new Card(suit, value));
-            }
-        }
-        return this.deck;
-    }
+
+
+const suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
+const value = ["Ace", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+for (let i = 0; i < suits.length; i++) {
+  for (let j = 0; j < value.length; j++) {
+    console.log(`${value[j]} of ${suits[i]}`);
+  }
 }
 
-let suits = ["hearts", "spades", "diamonds", "clubs"];
-let points = ["Ace", "King", "Queen", "Jack", 10, 9, 8, 7, 6, 5, 4, 3, 2];
+class Deck {
+    constructor() {
+        this.cards = [];
+        this.suits = ["hearts", "spades", "diamonds", "clubs"];
+        this.values = ["Ace", "King", "Queen", "Jack", 10, 9, 8, 7, 6, 5, 4, 3, 2];
+    }
+    buildDeck() {
+        for(let i = 0; i < this.suits.length; i++) {
+            for(let j = 0; j <this.values.length; j++) {
+                this.cards.push(new Card(this.suits[i], this.values[j]));
+            }
+        }
+    }
+    shuffle () {
+        let currentSpot = this.cards.length, temporaryValue, randomSpot;
+        
+        while (0 != currentSpot) {
+                randomSpot = Math.floor(Math.random() * currentSpot);
+                currentSpot -= 1;
+                temporaryValue = this.cards[currentSpot];
+                this.cards[currentSpot] = this.cards[randomSpot];
+                this.cards[randomSpot] = temporaryValue;
+            }
+        }
+    }
+
 let deckOfCards = new Deck();
+deckOfCards.buildDeck();
+console.log(deckOfCards.cards);
+deckOfCards.shuffle();
+
 let player1pile = [];
 let player2pile = [];
 
-deckOfCards.buildDeck(suits, points);
-//console.log(deckOfCards);
+
+//console.log(shuffle)
 
 //shuffle the cards - TAKE 1
 // function shuffle () {
@@ -53,19 +77,7 @@ deckOfCards.buildDeck(suits, points);
 // }
 
 //shuffle the cards - TAKE 2
-function shuffle () {
-    let currentSpot = this.deck.length, temporaryValue, randomSpot;
 
-    while (0 != currentSpot) {
-        randomSpot = Math.floor(Math.random() * currentSpot);
-        currentSpot -= 1;
-        temporaryValue = this.deck[currentSpot];
-        this.deck[currentSpot] = this.deck[randomSpot];
-        this.deck[randomSpot] = temporaryValue;
-    }
-}
-
-console.log(this.deck(shuffle))
 
 
 //press deal (button) to divide cards into two piles (player1pile, player2pile)
