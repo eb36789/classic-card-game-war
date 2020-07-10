@@ -57,32 +57,11 @@ deckOfCards.buildDeck();
 console.log(deckOfCards.cards);
 deckOfCards.shuffle();
 
+//press deal (button) to divide cards into two piles (player1pile, player2pile)
 let player1pile = [];
 let player2pile = [];
 
-
-//console.log(shuffle)
-
-//shuffle the cards - TAKE 1
-// function shuffle () {
-//     let counter =this.deck.length, temp, i;
-// while(counter) {
-//     i = Math.floor(Math.random() * counter--);
-//     temp = this.deck[counter];
-//     this.deck[counter] = this.deck[i];
-//     this.deck[i] = temp;
-// }
-// return this.deck
-// console.log(this.deck.shuffle());
-// }
-
-//shuffle the cards - TAKE 2
-
-
-
-//press deal (button) to divide cards into two piles (player1pile, player2pile)
-
-//add click logic to flip cards button, onclick: display random card from each player pile
+//addeventListener(click) logic to flip cards button, onclick: display random card from each player pile
 
 //capture played values (cards or clicks) so that future clicks will only display available cards
 
