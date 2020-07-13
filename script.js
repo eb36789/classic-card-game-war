@@ -56,18 +56,23 @@ class Deck {
             //console.log(this.player2pile);
         } 
     flipCards () {
-        let player1card = this.player1pile.shift();
-        let player2card = this.player2pile.shift();
+    // HELP - this is stopping somewhere along the way, don't know why. need to set it to pile.length = 0.
+    //for loop to cycle through cards until player pile is gone.
+    for(let i = 0; i < this.player1pile.length || i < this.player2pile.length; i++){
+    
+    //uses "shift" to take top care from player's pile as player's card
+    let player1card = this.player1pile.shift();
+    let player2card = this.player2pile.shift();
        console.log(player1card);
        console.log(player2card);
+
+            //compares card values to determine winner, if tie, kicks off "war" action.
             if (player1card.value > player2card.value) {
-                this.player1pile.push(player1card, player2card);
-                //this.player1pile.push(player2card);    
+                this.player1pile.push(player1card, player2card);   
                 console.log("player 1 wins");
                 console.log(this.player1pile);
             } else if (player2card.value > player1card.value){
                 this.player2pile.push(player1card, player2card);
-                //this.player2pile.push(player2card); 
                 console.log("player 2 wins");
                 console.log(this.player2pile);
             } else {(player1card === player2card);
@@ -75,6 +80,15 @@ class Deck {
                 console.log("tie");
             }
     }
+    // WIP - when either player card count reaches 52, use alert to declare a winner
+    // winnerYet () {
+    //     if (this.player1pile.length === 52) {
+    //         alert("Player 1 is the WINNER!")
+    //         } else if (this.player2pile.length === 52) {
+    //         alert("Player 2 is the WINNER!");
+    //         } else flipCards();
+    // }
+}
 }
    
 let deckOfCards = new Deck();
@@ -84,20 +98,13 @@ deckOfCards.dealCards();
 deckOfCards.flipCards();
 
 //addeventListener(click) logic to flip cards button, onclick: display card from each player pile (index 0)
-//let dealButton = document.querySelector('#dealButton');
+//let flipCardsButton = document.querySelector('#flipCardsButton');
 
 
-//when either player card count reaches 52(?), use alert to declare a winner
-// if (this.player1pile.length === 52) {
-// alert("Player 1 is the WINNER!")
-// } else if (this.player2pile.length === 52) {
-// alert("Player 2 is the WINNER!");
-// } //else start over
-
-//enable reset to clear board --> add to reset button
-function refresh() {
-    window.parent.location = window.parent.location.href;
-}
+//enable reset to clear board
+// let reset = refresh() {
+//     window.parent.location = window.parent.location.href;
+// }
 
 //SCRATCH SECTION//
 
