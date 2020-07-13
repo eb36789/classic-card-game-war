@@ -61,11 +61,18 @@ class Deck {
        console.log(player1card);
        console.log(player2card);
             if (player1card.value > player2card.value) {
-            console.log("player 1 wins");
+                this.player1pile.push(player1card, player2card);
+                //this.player1pile.push(player2card);    
+                console.log("player 1 wins");
+                console.log(this.player1pile);
             } else if (player2card.value > player1card.value){
-            console.log("player 2 wins");
-            //} else {(player1card === player2card);
+                this.player2pile.push(player1card, player2card);
+                //this.player2pile.push(player2card); 
+                console.log("player 2 wins");
+                console.log(this.player2pile);
+            } else {(player1card === player2card);
             //flip 4 cards and run compare cards function again
+                console.log("tie");
             }
     }
 }
@@ -81,11 +88,11 @@ deckOfCards.flipCards();
 
 
 //when either player card count reaches 52(?), use alert to declare a winner
-if (player1pile.length === 52) {
-alert("Player 1 is the WINNER!")
-} else if (player2pile.length === 52) {
-alert("Player 2 is the WINNER!";
-} //else start over
+// if (this.player1pile.length === 52) {
+// alert("Player 1 is the WINNER!")
+// } else if (this.player2pile.length === 52) {
+// alert("Player 2 is the WINNER!");
+// } //else start over
 
 //enable reset to clear board --> add to reset button
 function refresh() {
