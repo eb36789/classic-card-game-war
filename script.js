@@ -28,6 +28,9 @@ class Deck {
         this.tempPile = [];
         this.player1card = null;
         this.player2card = null;
+        document.querySelector(".button").addEventListener("click", () => {
+            this.flipCards();
+        });
     }
     buildDeck() {
         for(let i = 0; i < this.suits.length; i++) {
