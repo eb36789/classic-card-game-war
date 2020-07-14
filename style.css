@@ -15,3 +15,10 @@
 .box {
 background-color: cornflowerblue;
 }
+
+div {
+  text-align:center;
+  background-color: black;
+  color:maroon;
+  padding: 10px;
+}
