@@ -26,6 +26,8 @@ class Deck {
         this.player1pile = [];
         this.player2pile = [];
         this.tempPile = [];
+        this.player1card = null;
+        this.player2card = null;
     }
     buildDeck() {
         for(let i = 0; i < this.suits.length; i++) {
@@ -55,46 +57,46 @@ class Deck {
         } 
     flipCards () {
     // HELP - this is stopping somewhere along the way, don't know why.
-    //for loop to cycle through cards until player 1 or 2 pile = 52.
- // for(let i = 0; i < (this.player1pile.length > 0); i++){
-// let i = 0; 
-// while (this.player1pile.length != 52 && this.player2pile.length != 52) {
-//         i++;
-//         console.log(i);
-//   }
-
-//for(let i = 0; i < this.player1pile.length || i < this.player2pile.length; i++){
-    //while (this.player1pile.length < 52 && this.player2pile.length < 52) {
         
     //uses "shift" to take top card (first) from player's pile as played card for "battle"
-    let player1card = this.player1pile.shift();
-    let player2card = this.player2pile.shift();
-    //let tempPile = [];
-       console.log(player1card);
-       console.log(player2card);
+    this.player1card = this.player1pile.shift();
+    this.player2card = this.player2pile.shift();
+       console.log(this.player1card);
+       console.log(this.player2card);
 
             //compares card values to determine winner of hand and adds played cards to bottom of winner pile
             //if tie, kicks off "war" action
-            if (player1card.value > player2card.value) {
-                this.player1pile.push(player1card); 
-                this.player1pile.push(player2card); 
+            if (this.player1card.value > this.player2card.value) {
+                this.player1pile.push(this.player1card); 
+                this.player1pile.push(this.player2card); 
+                if (this.tempPile.length > 0){
+                    this.player1pile.push(...this.tempPile);
+                }
                 console.log("player 1 wins");
                 console.log(this.player1pile);
-            } else if (player2card.value > player1card.value){
-                this.player2pile.push(player1card);
-                this.player2pile.push(player2card);
+            } else if (this.player2card.value > this.player1card.value){
+                this.player2pile.push(this.player1card);
+                this.player2pile.push(this.player2card);
+                if (this.tempPile.length > 0){
+                    this.player2pile.push(...this.tempPile);
+                }
                 console.log("player 2 wins");
                 console.log(this.player2pile);
-            } else (deckOfCards.war());
+            } else (this.war());
         }
-    // feel like this needs to be embedded in flip method but not sure how.
-    war () {
-        let tempPile = [];
-        for (let i = 0; i < 4; i++){
-            this.tempPile.push(player1card);
-            this.tempPile.push(player2card);
+       war () {
+           console.log("war function")
+        this.tempPile.push(this.player1card);
+        this.tempPile.push(this.player2card);
+        for (let i = 0; i < 3; i++){
+            this.tempPile.push(this.player1pile.shift());
+            this.tempPile.push(this.player2pile.shift());
             console.log("Uh-oh... we are at War.  Next winning card takes it all!");
-            console.log(tempPile); } 
+            }
+            console.log("tempPile",this.tempPile); 
+            this.player1card = this.player1pile.shift();
+            this.player2card = this.player2pile.shift();
+            this.flipCards(); 
      }  
 //WIP - when either player card count reaches 52, use alert to declare a winner
     winnerYet () { 
@@ -112,7 +114,6 @@ deckOfCards.buildDeck();
 deckOfCards.shuffle();
 deckOfCards.dealCards();
 deckOfCards.flipCards();
-//deckOfCards.war();
 deckOfCards.winnerYet();
 
 

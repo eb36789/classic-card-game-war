@@ -1,5 +1,12 @@
-.container {
+body {
+  background-color: grey;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .container {
   display: grid;
+  margin: auto;
+  width: 95%;
 
   grid-template-areas:
     "header header header"
@@ -21,4 +28,8 @@ div {
   background-color: black;
   color:maroon;
   padding: 10px;
+}
+
+img {
+  width: 100px;
 }
