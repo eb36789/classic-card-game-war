@@ -86,6 +86,7 @@ class Deck {
                 console.log("player 2 wins");
                 console.log(this.player2pile);
             } else (this.war());
+            //this.winnerYet();
         }
        war () {
            console.log("war function")
@@ -103,9 +104,9 @@ class Deck {
      }  
 //WIP - when either player card count reaches 52, use alert to declare a winner
     winnerYet () { 
-        if (this.player1pile.length === 52) {
+        if (this.player1pile.length > 52) {
             alert("Player 1 is the WINNER!")
-        } else if (this.player2pile.length === 52) {
+        } else if (this.player2pile.length > 52) {
             alert("Player 2 is the WINNER!");
         } else {deckOfCards.flipCards();
                 }    
