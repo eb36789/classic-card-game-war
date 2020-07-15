@@ -64,9 +64,9 @@ class Deck {
         
     //uses "shift" to take top card (first) from player's pile as played card for "battle"
     this.player1card = this.player1pile.shift();
-    document.getElementById("player1card").innerHTML = `${this.player1card.value} of ${this.player1card.suit}`;
+    document.getElementById("player1card").innerHTML = `${this.player1card.value} <br>of<br> ${this.player1card.suit}`;
     this.player2card = this.player2pile.shift();
-    document.getElementById("player2card").innerHTML = `${this.player2card.value} of ${this.player2card.suit}`;
+    document.getElementById("player2card").innerHTML = `${this.player2card.value} <br> of <br> ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
 

@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: rgb(223, 219, 219);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
@@ -14,9 +14,12 @@ body {
 }
 
 .box {
-background-color: rgb(223, 219, 219);
+padding: 20px;
 }
 
+h5{
+  margin: 0px;
+ }
 
 #item-7, #item-9{
   border:5px maroon solid;
@@ -26,8 +29,7 @@ div {
   text-align:center;
   color:maroon;
   padding: 2px;
-  
-}
+ }
 
 img {
   width:100px;
@@ -38,25 +40,38 @@ img {
   height: auto;
 }
 
-#player1card
-
 .playedcards{
+  width: 171px;
+  height: 232px;
+  padding: 10px;
+  text-align: center;
+  font-size: 34px;
+  color: whitesmoke;
+  margin: auto;
 
+}
+#player1card{
+  border: 15px solid rgb(109, 26, 26);
+  background-color:  rgb(195, 35, 35);
+  float: left;
+}
+
+#player2card{
+  border: 15px solid rgb(21, 21, 134);
+  background-color:  rgb(56, 107, 218);
+  float: right;
 }
 
 button {
-  height: 75px;
-  width: 200px;
+  height: 100px;
+  width: 300px;
   background-color: black;
   border-radius: 10px;
   border: 4px double #cccccc;
   color: #eeeeee;
   text-align: center;
   font-size: 16px;  
-  transition: all 0.5s;
-  cursor: pointer;
   margin: 5px;
-
 }
 
 button:hover {
@@ -65,6 +80,6 @@ button:hover {
 
 .createdbytag {
    font-size: 10px;
-   position: absolute;
+  
    bottom: 0em;
 }
