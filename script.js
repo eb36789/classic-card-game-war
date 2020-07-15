@@ -69,6 +69,8 @@ class Deck {
     document.getElementById("player2card").innerHTML = `${this.player2card.value} <br> of <br> ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
+       let player1score = 26;
+       let player2score = 26;
 
             //compares card values to determine winner of hand and adds played cards to bottom of winner pile
             //if tie, kicks off "war" action
@@ -78,12 +80,14 @@ class Deck {
                 player1score++;
                 player2score--;
                 console.log("player1score", player1score);
+                document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
                 if (this.tempPile.length > 0){
                     this.player1pile.push(...this.tempPile);
                 }
                 document.getElementById("status").innerHTML = "PLAYER 1 WINS THIS BATTLE";
                 console.log("player 1 wins");
                 document.getElementById("1score").innerHTML = `${player1score}`;
+                document.getElementById("2score").innerHTML = `${player2score}`;
                 console.log(this.player1pile);
             } else if (this.player2card.value > this.player1card.value){
                 this.player2pile.push(this.player1card);
@@ -91,12 +95,15 @@ class Deck {
                 player1score--;
                 player2score++;
                 console.log("player2score", player2score);
+                document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
                 if (this.tempPile.length > 0){
                     this.player2pile.push(...this.tempPile);
                 }
                 document.getElementById("status").innerHTML = "PLAYER 2 WINS THIS BATTLE";
+                document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
                 console.log("player 2 wins");
                 document.getElementById("2score").innerHTML = `${player2score}`;
+                document.getElementById("1score").innerHTML = `${player1score}`;
                 console.log(this.player2pile);
             } else (this.war());
                 //this.winnerYet();
@@ -133,14 +140,11 @@ deckOfCards.buildDeck();
 deckOfCards.shuffle();
 deckOfCards.dealCards();
 //deckOfCards.flipCards();
-deckOfCards.winnerYet();
+//deckOfCards.winnerYet();
 
 
 
 //SCRATCH SECTION//
-
-//Put title (header), reset (button), flip card (button) and placeholders for played cards and player stack of cards on page 
-//using CSS
 
 //addeventListener(click) logic to flip cards button, onclick: display card from each player pile (index 0)
 //let flipCardsButton = document.querySelector('#flipCardsButton');
