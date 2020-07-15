@@ -57,7 +57,7 @@ button:hover {
 }
 
 .createdbytag {
-  position: absolute;
-  bottom: 0px;
-  font-size: 10px;
+   font-size: 10px;
+   position: absolute;
+   bottom: 0em;
 }
