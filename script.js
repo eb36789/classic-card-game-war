@@ -81,6 +81,7 @@ class Deck {
                 }
                 document.getElementById("status").innerHTML = "PLAYER 1 WINS THIS BATTLE";
                 console.log("player 1 wins");
+                document.getElementById("1score").innerHTML = `${player1score}`;
                 console.log(this.player1pile);
             } else if (this.player2card.value > this.player1card.value){
                 this.player2pile.push(this.player1card);
@@ -93,18 +94,20 @@ class Deck {
                 }
                 document.getElementById("status").innerHTML = "PLAYER 2 WINS THIS BATTLE";
                 console.log("player 2 wins");
+                document.getElementById("2score").innerHTML = `${player2score}`;
                 console.log(this.player2pile);
             } else (this.war());
-            //this.winnerYet();
+                //this.winnerYet();
         }
        war () {
-           console.log("war function")
+        console.log("war function")
         this.tempPile.push(this.player1card);
         this.tempPile.push(this.player2card);
         for (let i = 0; i < 3; i++){
             this.tempPile.push(this.player1pile.shift());
             this.tempPile.push(this.player2pile.shift());
             console.log("Uh-oh... we are at War.  Next winning card takes it all!");
+            document.getElementById("status").innerHTML = "uh-oh.... we are at WAR!";
             }
             console.log("tempPile",this.tempPile); 
             this.player1card = this.player1pile.shift();
