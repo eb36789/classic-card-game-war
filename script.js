@@ -23,7 +23,6 @@ class Deck {
         this.cards = [];
         this.suits = ["hearts", "spades", "diamonds", "clubs"];
         this.values = [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2];
-        //"Ace", "King", "Queen", "Jack"
         this.player1pile = [];
         this.player2pile = [];
         this.tempPile = [];
@@ -77,6 +76,7 @@ class Deck {
     document.getElementById("player2card").innerHTML = `${this.player2card.value} <br> of <br> ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
+            
             //compares card values to determine winner of hand and adds played cards to bottom (end of array) of winner pile
             //if tie, will kicks off "war" action
             if (this.player1card.value > this.player2card.value) {
@@ -113,9 +113,7 @@ class Deck {
             alert("Player 1 is the WINNER!")
         } else if (this.player2score > 51) {
             alert("Player 2 is the WINNER!");
-            }  
-        // let reset = refresh() {
-        //     window.parent.location = window.parent.location.href;   
+            }    
         } 
     }
 
@@ -123,14 +121,5 @@ let deckOfCards = new Deck();
 deckOfCards.buildDeck();
 deckOfCards.shuffle();
 deckOfCards.dealCards();
-//deckOfCards.flipCards();
-//deckOfCards.winnerYet();
 
 //Reference: how to build a deck of cards in JS --> https://www.youtube.com/watch?v=h3ehO5QMNu4 and Thiago Cavalcante ;-)
-
-//SCRATCH SECTION//
-
-//future update: enable reset to clear board
-// let reset = refresh() {
-//     window.parent.location = window.parent.location.href;
-// }
