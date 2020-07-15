@@ -79,6 +79,7 @@ class Deck {
                 if (this.tempPile.length > 0){
                     this.player1pile.push(...this.tempPile);
                 }
+                document.getElementById("status").innerHTML = "PLAYER 1 WINS THIS BATTLE";
                 console.log("player 1 wins");
                 console.log(this.player1pile);
             } else if (this.player2card.value > this.player1card.value){
@@ -90,6 +91,7 @@ class Deck {
                 if (this.tempPile.length > 0){
                     this.player2pile.push(...this.tempPile);
                 }
+                document.getElementById("status").innerHTML = "PLAYER 2 WINS THIS BATTLE";
                 console.log("player 2 wins");
                 console.log(this.player2pile);
             } else (this.war());
@@ -124,7 +126,7 @@ let deckOfCards = new Deck();
 deckOfCards.buildDeck();
 deckOfCards.shuffle();
 deckOfCards.dealCards();
-deckOfCards.flipCards();
+//deckOfCards.flipCards();
 deckOfCards.winnerYet();
 
 
