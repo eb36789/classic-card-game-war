@@ -113,7 +113,9 @@ class Deck {
             alert("Player 1 is the WINNER!")
         } else if (this.player2score > 51) {
             alert("Player 2 is the WINNER!");
-            }    
+            }  
+        // let reset = refresh() {
+        //     window.parent.location = window.parent.location.href;   
         } 
     }
 
@@ -128,7 +130,7 @@ deckOfCards.dealCards();
 
 //SCRATCH SECTION//
 
-//enable reset to clear board
+//future update: enable reset to clear board
 // let reset = refresh() {
 //     window.parent.location = window.parent.location.href;
 // }
