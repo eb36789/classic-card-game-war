@@ -41,8 +41,7 @@ class Deck {
         }
     }
     shuffle () {
-        let currentSpot = this.cards.length, temporaryValue, randomSpot;
-        
+        let currentSpot = this.cards.length, temporaryValue, randomSpot;  
         while (0 != currentSpot) {
                 randomSpot = Math.floor(Math.random() * currentSpot);
                 currentSpot -= 1;
@@ -52,7 +51,6 @@ class Deck {
             }
         }
     dealCards () {
-
         for(let i = 0; i < this.cards.length / 2; i++){
                 this.player1pile.push(this.cards[i]);
                 this.player2pile.push(this.cards[this.cards.length - i - 1]);
@@ -61,8 +59,6 @@ class Deck {
             //console.log(this.player2pile);
         } 
     flipCards () {
-    // HELP - this is stopping somewhere along the way, don't know why.
-        
     //uses "shift" to take top card (first) from player's pile as played card for "battle"
     this.player1card = this.player1pile.shift();
     document.getElementById("player1card").innerHTML = `${this.player1card.value} <br>of<br> ${this.player1card.suit}`;
@@ -82,7 +78,13 @@ class Deck {
                 console.log("player1score", player1score);
                 document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
                 if (this.tempPile.length > 0){
-                    this.player1pile.push(...this.tempPile);
+                   // this.player1pile.push(this.tempPile);
+                    Array.prototype.push.apply(this.player1pile, this.tempPile);
+                    this.tempPile = 0;
+                    console.log(this.tempPile);
+                    player1score+=8;
+                    player2score-=6;
+                    console.log("warscoringupdate", player1score);
                 }
                 document.getElementById("status").innerHTML = "PLAYER 1 WINS THIS BATTLE";
                 console.log("player 1 wins");
@@ -97,7 +99,13 @@ class Deck {
                 console.log("player2score", player2score);
                 document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
                 if (this.tempPile.length > 0){
-                    this.player2pile.push(...this.tempPile);
+                    //this.player2pile.push(this.tempPile);
+                    Array.prototype.push.apply(this.player2pile, this.tempPile);
+                    this.tempPile = 0;
+                    console.log(this.tempPile);
+                    player2score+=8;
+                    player1score-=6;
+                    console.log("warscoringupdate", player2score);
                 }
                 document.getElementById("status").innerHTML = "PLAYER 2 WINS THIS BATTLE";
                 document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
@@ -144,9 +152,6 @@ deckOfCards.dealCards();
 
 
 //SCRATCH SECTION//
-
-//addeventListener(click) logic to flip cards button, onclick: display card from each player pile (index 0)
-//let flipCardsButton = document.querySelector('#flipCardsButton');
 
 //enable reset to clear board
 // let reset = refresh() {
