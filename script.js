@@ -23,6 +23,7 @@ class Deck {
         this.cards = [];
         this.suits = ["hearts", "spades", "diamonds", "clubs"];
         this.values = [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2];
+        //"Ace", "King", "Queen", "Jack"
         this.player1pile = [];
         this.player2pile = [];
         this.tempPile = [];
@@ -102,33 +103,26 @@ class Deck {
                 this.player1pile.push(this.player1card);
                 this.player2pile.push(this.player2card);
                 //document.getElementById("status").innerHTML = "uh-oh, this battle is a draw.<br><br>  We are heading to WAR!";
-            }
-                
+                this.winnerYet();
+                }         
     }
-
        
-//WIP - when either player card count reaches 52, use alert to declare a winner
+//Checks player card pile count.  When a player card count reaches 52, uses alert to declare a winner.
     winnerYet () { 
         if (this.player1pile.length > 51) {
             alert("Player 1 is the WINNER!")
         } else if (this.player2pile.length > 52) {
             alert("Player 2 is the WINNER!");
-         } 
-        //else {
-        //     deckOfCards.flipCards();
-        //     }    
+            }    
         } 
     }
-
 
 let deckOfCards = new Deck();
 deckOfCards.buildDeck();
 deckOfCards.shuffle();
 deckOfCards.dealCards();
 //deckOfCards.flipCards();
-deckOfCards.winnerYet();
-
-
+//deckOfCards.winnerYet();
 
 //SCRATCH SECTION//
 
