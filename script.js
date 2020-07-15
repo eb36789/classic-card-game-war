@@ -15,7 +15,6 @@ const suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
 const value = [14, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 for (let i = 0; i < suits.length; i++) {
   for (let j = 0; j < value.length; j++) {
-    //console.log(`${value[j]} of ${suits[i]}`);
   }
 }
 
@@ -33,6 +32,8 @@ class Deck {
             this.flipCards();
         });
     }
+
+    //iterates through available suits and values to create deck of 52 cards
     buildDeck() {
         for(let i = 0; i < this.suits.length; i++) {
             for(let j = 0; j <this.values.length; j++) {
@@ -40,6 +41,8 @@ class Deck {
             }
         }
     }
+
+    //shuffles the cards so they are in random order after creation
     shuffle () {
         let currentSpot = this.cards.length, temporaryValue, randomSpot;  
         while (0 != currentSpot) {
@@ -50,6 +53,8 @@ class Deck {
                 this.cards[randomSpot] = temporaryValue;
             }
         }
+
+    //takes deck of cards and distributes equally between player 1 and player 2 (26 each) 
     dealCards () {
         for(let i = 0; i < this.cards.length / 2; i++){
                 this.player1pile.push(this.cards[i]);
@@ -58,8 +63,9 @@ class Deck {
             console.log(this.player1pile);
             console.log(this.player2pile);
         } 
+
+    //identifies random card from each player's pile and displays played card for "battle"
     flipCards () {
-    //uses "shift" to take top card (first) from player's pile as played card for "battle"
     let randomPlayer1index = Math.floor(Math.random()*this.player1pile.length-1)
     this.player1card = this.player1pile[randomPlayer1index];
     this.player1pile.splice(randomPlayer1index, 1);
@@ -70,122 +76,36 @@ class Deck {
     document.getElementById("player2card").innerHTML = `${this.player2card.value} <br> of <br> ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
-
-//feel like this should be turned into its own method?
-            //compares card values to determine winner of hand and adds played cards to bottom of winner pile
-            //if tie, kicks off "war" action
+            //compares card values to determine winner of hand and adds played cards to bottom (end of array) of winner pile
+            //if tie, will kicks off "war" action
             if (this.player1card.value > this.player2card.value) {
                 this.player1pile.push(this.player1card); 
                 this.player1pile.push(this.player2card); 
                 player1score++;
                 player2score--;
-                console.log("player1score", player1score);
                 document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
-                // if (this.tempPile.length > 0){
-                //    // this.player1pile.push(this.tempPile);
-                //     Array.prototype.push.apply(this.player1pile, this.tempPile);
-                //     this.tempPile = 0;
-                //     console.log(this.tempPile);
-                //     player1score+=8;
-                //     player2score-=6;
-                //     console.log("warscoringupdate", player1score);
-                //}
                 document.getElementById("status").innerHTML = "PLAYER 1 WINS THIS BATTLE";
-                console.log("player 1 wins");
                 document.getElementById("1score").innerHTML = `${player1score}`;
                 document.getElementById("2score").innerHTML = `${player2score}`;
-                console.log(this.player1pile);
-            } else if (this.player2card.value > this.player1card.value){
+                this.winnerYet();
+            } else if (this.player2card.value > this.player1card.value) {
                 this.player2pile.push(this.player1card);
                 this.player2pile.push(this.player2card);
                 player1score--;
                 player2score++;
-                console.log("player2score", player2score);
                 document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
-                // if (this.tempPile.length > 0){
-                //     //this.player2pile.push(this.tempPile);
-                //     Array.prototype.push.apply(this.player2pile, this.tempPile);
-                //     this.tempPile = 0;
-                //     console.log(this.tempPile);
-                //     player2score+=8;
-                //     player1score-=6;
-                //     console.log("warscoringupdate", player2score);
-                // }
                 document.getElementById("status").innerHTML = "PLAYER 2 WINS THIS BATTLE";
-                document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
-                console.log("player 2 wins");
                 document.getElementById("2score").innerHTML = `${player2score}`;
                 document.getElementById("1score").innerHTML = `${player1score}`;
-                console.log(this.player2pile);
-            } else {
-                this.player1pile.push(this.player1card);
-                console.log(this.player1pile);
-                console.log(this.player2pile);
-                this.player2pile.push(this.player2card);
-                //this.war();
-            }
-            
                 this.winnerYet();
+            } else (this.player1card.value === this.player2card.value); {
+                this.player1pile.push(this.player1card);
+                this.player2pile.push(this.player2card);
+                document.getElementById("status").innerHTML = "uh-oh, this battle is a draw.<br><br>  We are heading to WAR!";
+            }
+                
     }
-    //    war () {
-    //     console.log("war function")
-    //     //why isn't this status update working????
-    //     document.getElementById("status").innerHTML = "uh-oh.... we are at WAR!";
 
-    //     console.log("Uh-oh... we are at War.  Next winning card gets all 8 cards in play!");
-    //     console.log(this.player1pile);
-    //     console.log(this.player2pile);
-    //     for (let i = 0; i < 3; i++){
-    //         (this.tempPile.push(this.player1pile.shift()));
-    //         console.log("player1 three cards", this.tempPile, this.player1pile);
-    //     }
-    //     for (let j = 0; j < 3; j++){
-    //         (this.tempPile.push(this.player2pile.shift()));
-    //         console.log("player2 three cards", this.tempPile, this.player2pile);
-    //     }
-    //     console.log("tempPile",this.tempPile);
-
-    //     this.player1card = this.player1pile.shift();
-    //     this.player2card = this.player2pile.shift();
-    //         if (this.player1card.value > this.player2card.value) {
-    //             this.player1pile.push(this.player1card); 
-    //             this.player1pile.push(this.player2card); 
-    //             // player1score++;
-    //             // player2score--;
-    //                //if (this.tempPile.length > 0){
-    //                // this.player1pile.push(this.tempPile);
-    //                 Array.prototype.push.apply(this.player1pile, this.tempPile);
-    //                 console.log(this.player1pile);
-    //                 this.tempPile = 0;
-    //                 console.log(this.tempPile);
-    //                 console.log("is this tempPile empty?",this.tempPile);
-    //                 player1score+=8;
-    //                 player2score-=6;
-    //                 console.log("warscoringupdate", player1score);}
-    //                 else if (this.player2card.value > this.player1card.value){
-    //                     this.player2pile.push(this.player1card);
-    //                     this.player2pile.push(this.player2card);
-    //                     //player1score--;
-    //                     //player2score++;
-    //                     //console.log("player2score", player2score);
-    //                    // document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
-    //                     //if (this.tempPile.length > 0){
-    //                         //this.player2pile.push(this.tempPile);
-    //                         Array.prototype.push.apply(this.player2pile, this.tempPile);
-    //                         console.log(this.player2pile);
-    //                         this.tempPile = 0;
-    //                         console.log("is this tempPile empty?",this.tempPile);
-    //                         player2score+=8;
-    //                         player1score-=6;
-    //                         console.log("warscoringupdate", player2score);
-    //                     }
-    //                     document.getElementById("status").innerHTML = "PLAYER 2 WINS THIS BATTLE";
-    //                     document.getElementById("flipcards").innerHTML = "<b>FLIP CARDS</b>";
-    //                     console.log("player 2 wins");
-    //                     document.getElementById("2score").innerHTML = `${player2score}`;
-    //                     document.getElementById("1score").innerHTML = `${player1score}`;
-    //                     console.log(this.player2pile);
-            //this.flipCards(); 
        
 //WIP - when either player card count reaches 52, use alert to declare a winner
     winnerYet () { 
