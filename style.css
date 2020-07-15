@@ -21,8 +21,13 @@ h5{
   margin: 0px;
  }
 
-#item-7, #item-9{
+#item-7{
   border:5px maroon solid;
+}
+
+#item-9{
+  border:5px rgb(21, 21, 134) solid;
+  color: rgb(21, 21, 134);
 }
 
 div {
@@ -80,6 +85,6 @@ button:hover {
 
 .createdbytag {
    font-size: 10px;
-  
    bottom: 0em;
+   color: black;
 }

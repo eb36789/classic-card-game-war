@@ -1,7 +1,6 @@
 console.log("working");
 let player1score = 26;
 let player2score = 26;
-//Reference: how to build a deck of cards in JS --> https://www.youtube.com/watch?v=h3ehO5QMNu4 and Thiago Cavalcante ;-)
 
 //build deck of cards (class for card, class for deck)
 class Card {
@@ -110,9 +109,9 @@ class Deck {
        
 //Checks player card pile count.  When a player card count reaches 52, uses alert to declare a winner.
     winnerYet () { 
-        if (this.player1pile.length > 51) {
+        if (this.player1score > 51) {
             alert("Player 1 is the WINNER!")
-        } else if (this.player2pile.length > 52) {
+        } else if (this.player2score > 51) {
             alert("Player 2 is the WINNER!");
             }    
         } 
@@ -124,6 +123,8 @@ deckOfCards.shuffle();
 deckOfCards.dealCards();
 //deckOfCards.flipCards();
 //deckOfCards.winnerYet();
+
+//Reference: how to build a deck of cards in JS --> https://www.youtube.com/watch?v=h3ehO5QMNu4 and Thiago Cavalcante ;-)
 
 //SCRATCH SECTION//
 
