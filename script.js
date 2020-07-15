@@ -60,9 +60,13 @@ class Deck {
         } 
     flipCards () {
     //uses "shift" to take top card (first) from player's pile as played card for "battle"
-    this.player1card = this.player1pile.shift();
+    let randomPlayer1index = Math.floor(Math.random()*this.player1pile.length-1)
+    this.player1card = this.player1pile[randomPlayer1index];
+    this.player1pile.splice(randomPlayer1index, 1);
     document.getElementById("player1card").innerHTML = `${this.player1card.value} <br>of<br> ${this.player1card.suit}`;
-    this.player2card = this.player2pile.shift();
+    let randomPlayer2index = Math.floor(Math.random()*this.player2pile.length-1)
+    this.player2card = this.player2pile[randomPlayer2index];
+    this.player2pile.splice(randomPlayer2index, 1);
     document.getElementById("player2card").innerHTML = `${this.player2card.value} <br> of <br> ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
