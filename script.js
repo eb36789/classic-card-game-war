@@ -52,6 +52,7 @@ class Deck {
             }
         }
     dealCards () {
+
         for(let i = 0; i < this.cards.length / 2; i++){
                 this.player1pile.push(this.cards[i]);
                 this.player2pile.push(this.cards[this.cards.length - i - 1]);
@@ -69,8 +70,7 @@ class Deck {
     document.getElementById("player2card").innerHTML = `${this.player2card.value} <br> of <br> ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
-       let player1score = 26;
-       let player2score = 26;
+
 
             //compares card values to determine winner of hand and adds played cards to bottom of winner pile
             //if tie, kicks off "war" action
@@ -112,16 +112,15 @@ class Deck {
         console.log("war function")
         this.tempPile.push(this.player1card);
         this.tempPile.push(this.player2card);
-        console.log("Uh-oh... we are at War.  Next winning card takes it all!");
+        console.log("Uh-oh... we are at War.  Next winning card gets all 8 cards in play!");
        // document.getElementById("status").innerHTML = "uh-oh.... we are at WAR!";
         for (let i = 0; i < 3; i++){
             this.tempPile.push(this.player1pile.shift());
             this.tempPile.push(this.player2pile.shift());
-
             }
             console.log("tempPile",this.tempPile); 
-            this.player1card = this.player1pile.shift();
-            this.player2card = this.player2pile.shift();
+            //this.player1card = this.player1pile.shift();
+            //this.player2card = this.player2pile.shift();
             this.flipCards(); 
      }  
 //WIP - when either player card count reaches 52, use alert to declare a winner
