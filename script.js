@@ -1,5 +1,6 @@
 console.log("working");
-
+let player1score = 26;
+let player2score = 26;
 //Reference: how to build a deck of cards in JS --> https://www.youtube.com/watch?v=h3ehO5QMNu4 and Thiago Cavalcante ;-)
 
 //build deck of cards (class for card, class for deck)
@@ -72,6 +73,9 @@ class Deck {
             if (this.player1card.value > this.player2card.value) {
                 this.player1pile.push(this.player1card); 
                 this.player1pile.push(this.player2card); 
+                player1score++;
+                player2score--;
+                console.log("player1score", player1score);
                 if (this.tempPile.length > 0){
                     this.player1pile.push(...this.tempPile);
                 }
@@ -80,6 +84,9 @@ class Deck {
             } else if (this.player2card.value > this.player1card.value){
                 this.player2pile.push(this.player1card);
                 this.player2pile.push(this.player2card);
+                player1score--;
+                player2score++;
+                console.log("player2score", player2score);
                 if (this.tempPile.length > 0){
                     this.player2pile.push(...this.tempPile);
                 }
