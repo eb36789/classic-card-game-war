@@ -64,7 +64,9 @@ class Deck {
         
     //uses "shift" to take top card (first) from player's pile as played card for "battle"
     this.player1card = this.player1pile.shift();
+    document.getElementById("player1card").innerHTML = `${this.player1card.value} of ${this.player1card.suit}`;
     this.player2card = this.player2pile.shift();
+    document.getElementById("player2card").innerHTML = `${this.player2card.value} of ${this.player2card.suit}`;
        console.log(this.player1card);
        console.log(this.player2card);
 
@@ -103,11 +105,12 @@ class Deck {
         console.log("war function")
         this.tempPile.push(this.player1card);
         this.tempPile.push(this.player2card);
+        console.log("Uh-oh... we are at War.  Next winning card takes it all!");
+       // document.getElementById("status").innerHTML = "uh-oh.... we are at WAR!";
         for (let i = 0; i < 3; i++){
             this.tempPile.push(this.player1pile.shift());
             this.tempPile.push(this.player2pile.shift());
-            console.log("Uh-oh... we are at War.  Next winning card takes it all!");
-            document.getElementById("status").innerHTML = "uh-oh.... we are at WAR!";
+
             }
             console.log("tempPile",this.tempPile); 
             this.player1card = this.player1pile.shift();

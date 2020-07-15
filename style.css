@@ -33,9 +33,15 @@ img {
   width:100px;
 }
 
-.reddeck {
+.carddeck {
   width: 100%;
   height: auto;
+}
+
+#player1card
+
+.playedcards{
+
 }
 
 button {
