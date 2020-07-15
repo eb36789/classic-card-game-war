@@ -101,7 +101,7 @@ class Deck {
             } else (this.player1card.value === this.player2card.value); {
                 this.player1pile.push(this.player1card);
                 this.player2pile.push(this.player2card);
-                document.getElementById("status").innerHTML = "uh-oh, this battle is a draw.<br><br>  We are heading to WAR!";
+                //document.getElementById("status").innerHTML = "uh-oh, this battle is a draw.<br><br>  We are heading to WAR!";
             }
                 
     }
